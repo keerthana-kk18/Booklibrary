@@ -5,6 +5,9 @@ import { LuLogOut } from "react-icons/lu";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'
 
+const apiurl=import.meta.env.VITE_BACKEND_URL;
+
+
 const Viewdetails = () => {
     const{id}=useParams();
     const [book,setbook]=useState(null);
@@ -12,7 +15,7 @@ const Viewdetails = () => {
     useEffect(()=>{
         const fetchdetails=async()=>{
             try{
-                const response=await axios.get(`http://localhost:4000/api/books/get/${id}`)
+                const response=await axios.get(`${apiurl}/api/books/get/${id}`)
                 setbook(response.data)
                 setloading(false)
             }catch(error){

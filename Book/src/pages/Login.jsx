@@ -4,6 +4,9 @@ import { Link,useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
 
+const apiurl=import.meta.env.VITE_BACKEND_URL;
+
+
 const Login = () => {
   const navigate=useNavigate();
   const[formdata,setformdata]=useState({
@@ -18,7 +21,7 @@ const Login = () => {
   const handlesubmit=async(e)=>{
     e.preventDefault();
     try{
-      const response=await axios.post('http://localhost:4000/api/users/login',formdata);
+      const response=await axios.post(`${apiurl}/api/users/login`,formdata);
       alert(response.data.message);
       localStorage.setItem('user',JSON.stringify(response.data.user))
       navigate('/viewbooks');

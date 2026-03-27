@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios'
 
+const apiurl=import.meta.env.VITE_BACKEND_URL;
+
 
 export const Managebooks = ({setactive,seteditbook}) => {
     const[books,setbooks]=useState([])
     useEffect(()=>{
         const fetchdata=async()=>{
             try{
-                const response=await axios.get('http://localhost:4000/api/books/getall')
+                const response=await axios.get(`${apiurl}/api/books/getall`)
                 setbooks(response.data)
             }catch(error){
                 console.error("fetching error",error); 
@@ -28,7 +30,7 @@ export const Managebooks = ({setactive,seteditbook}) => {
 
     const handledelete=async(id)=>{
         try{
-            await axios.delete(`http://localhost:4000/api/books/delete/${id}`)
+            await axios.delete(`${apiurl}/api/books/delete/${id}`)
             const updateddatas=books.filter((book)=>book._id!==id)
             setbooks(updateddatas)
             alert("Book deleted")

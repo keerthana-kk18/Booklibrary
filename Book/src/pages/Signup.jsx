@@ -4,6 +4,9 @@ import { Link,useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 
+const apiurl=import.meta.env.VITE_BACKEND_URL;
+
+
 const Signup = () => {
   const navigate=useNavigate();
   const[formdata,setformdata]=useState({
@@ -20,7 +23,7 @@ const Signup = () => {
    const handlesubmit=async(e)=>{
     e.preventDefault();
     try{
-      const response=await axios.post('http://localhost:4000/api/users/signup',formdata);
+      const response=await axios.post(`${apiurl}/api/users/signup`,formdata);
       alert(response.data.message);
     }catch(error){
       alert(error.response?.data?.message);

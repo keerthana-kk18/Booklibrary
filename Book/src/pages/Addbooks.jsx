@@ -3,6 +3,9 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import Managebooks from './Managebooks'
 
+const apiurl=import.meta.env.VITE_BACKEND_URL;
+
+
 const Addbooks = ({setactive}) => {
     const navigate=useNavigate();
     const[file,setfile]=useState(null);
@@ -34,7 +37,7 @@ const Addbooks = ({setactive}) => {
             data.append('image',file)
         }
         try{
-            const response=await axios.post('http://localhost:4000/api/books/add',data,{
+            const response=await axios.post(`${apiurl}/api/books/add`,data,{
                headers:{'Content-Type':'multipart/form-data'}
             })
             console.log("Success",response.data);

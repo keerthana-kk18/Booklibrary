@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
+const apiurl=import.meta.env.VITE_BACKEND_URL;
+
+
 export const Editbook = ({book,setactive}) => {
     const[bookdata,setbookdata]=useState({
         title:book.title,
@@ -34,7 +37,7 @@ export const Editbook = ({book,setactive}) => {
         console.log("Updating book ID:",book._id);
         
             try{
-                const response=await axios.put(`http://localhost:4000/api/books/update/${book._id}`,data)
+                const response=await axios.put(`${apiurl}/api/books/update/${book._id}`,data)
                 alert("updated successfully")
                 setactive('manage')
             }catch(error){

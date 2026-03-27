@@ -3,17 +3,20 @@ import { MdLocalLibrary,MdSearch } from "react-icons/md";
 import imgg from '../images/viewbg3.png'
 import { LuLogOut } from "react-icons/lu";
 import book1 from '../images/book1.jpg'
-import { Link,useNavigate } from 'react-router-dom';
+import { Link,useLocation,useNavigate } from 'react-router-dom';
 import axios from 'axios'
+
+const apiurl=import.meta.env.VITE_BACKEND_URL;
 
 const Viewbooks = () => {
     const navigate=useNavigate();
+    const location=useLocation();
     const[books,setbooks]=useState([]);
     const[search,setsearch]=useState("")
     useEffect(()=>{
         const fetchdata=async()=>{
             try{
-                const response=await axios.get('http://localhost:4000/api/books/getall')
+                const response=await axios.get(`${apiurl}/api/books/getall`)
                 setbooks(response.data)
             }catch(error){
                 console.error("fetching error",error); 
