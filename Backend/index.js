@@ -12,9 +12,12 @@ import bookroutes from './routes/bookroutes.js';
 dotenv.config();
 const app=express();
 app.use(cors({
-    origin:"http://localhost:5173",
-    methods:["GET","POST","PUT","DELETE"],
-    credentials:true
+  origin: [
+    "http://localhost:5173",
+    "https://booklibrary-biuu.onrender.com"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
