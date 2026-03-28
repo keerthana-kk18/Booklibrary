@@ -42,23 +42,23 @@ export const Managebooks = ({setactive,seteditbook}) => {
     }
 
   return (
-    <div className='p-8 min-h-screen'>
-        <div className='flex justify-between items-center mb-8'>
-            <button onClick={()=>setactive('add')} className='flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold '>
+    <div className='p-4 md:p-10 min-h-screen'>
+        <div className='flex justify-between items-center mb-8 '>
+            <button onClick={()=>setactive('add')} className='flex items-center gap-2 bg-[#dc143c] text-white px-6 py-3 rounded-lg font-semibold '>
                 <MdAdd size={20} />
                 Add Book
             </button>
         </div>
 
-        <div className='bg-white rounded-xl shadow-2xl overflow-hidden'>
-            <table className='w-full text-left'>
+        <div className='bg-white rounded-xl shadow-2xl overflow-x-auto'>
+            <table className='w-full text-left min-w-[600px] md:min-w-full'>
                 <thead className='border-b border-gray-800'>
                     <tr>
                         <th className='p-5 text-black'>Book</th>
                         <th className='p-5 text-black'>Author</th>
                         <th className='p-5 text-black'>Genre</th>
                         <th className='p-5 text-black'>Year</th>
-                        <th className='p-5 text-black'>Actions</th>
+                        <th className='p-5 text-black text-center'>Actions</th>
                     </tr>
                 </thead>
                 <tbody>

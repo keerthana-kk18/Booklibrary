@@ -85,7 +85,7 @@ const Addbooks = ({setactive}) => {
                     </div>
                 </div>
                 <div className='flex flex-row gap-4'>
-                    <button type='submit' className='w-[200px] bg-blue-600 text-white py-3 rounded-xl'>Add</button>
+                    <button type='submit' className='w-[200px] bg-[#dc143c] text-white py-3 rounded-xl'>Add</button>
                     <button type='button' onClick={()=>setactive('manage')} className='w-[200px] bg-gray-200 text-black py-3 px-8 rounded-xl'>Cancel</button>
                 </div>
             </form>

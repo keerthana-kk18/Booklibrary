@@ -44,7 +44,7 @@ export const Editbook = ({book,setactive}) => {
                 console.error("server error details:",error.response?.data);
                 const errormessage=error.response?.data?.message||error.message;
                 
-            alert("Updation failed:"+errormessage) //actual code
+            alert("Updation failed:"+errormessage)
         }
     }
   return (
@@ -88,7 +88,7 @@ export const Editbook = ({book,setactive}) => {
                     </div>
                 </div>
                <div className='flex flex-row gap-4'>
-                    <button type='submit' className='w-[200px] bg-blue-600 text-white py-3 rounded-xl'>Update</button>
+                    <button type='submit' className='w-[200px] bg-[#dc143c] text-white py-3 rounded-xl'>Update</button>
                     <button type='button' onClick={()=>setactive('manage')} className='w-[200px] bg-gray-200 text-black py-3 px-8 rounded-xl'>Cancel</button>
                 </div>
             </form>
